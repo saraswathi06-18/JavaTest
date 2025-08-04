@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User, Email, and Password Validation</title>
+    <style>
+        body {
+            background-color: aqua;
+            color: black;
+            text-align: center;
+            margin: 100px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+    </style>
+    <script>
+        function validuser(user) {
+            // Username validation: alphanumeric and 3-15 characters
+            const userre = /^[a-zA-Z0-9]{3,15}$/;
+            const res = userre.test(user);
+            if (!res) {
+                alert("Enter a Valid Username (3-15 alphanumeric characters)");
+                return;
+            }
+
+            // Email validation: standard email format
+            const emailre = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const res1 = emailre.test(document.f1.txt2.value);
+            if (!res1) {
+                alert("Enter a Valid Email ID");
+                return;
+            }
+
+            // Password validation: 6-20 characters, at least one digit, one uppercase and one lowercase letter
+            const passwordre = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+            const res2 = passwordre.test(document.f1.txt3.value);
+            if (!res2) {
+                alert("Password must be 6 to 20 characters, contain at least one numeric digit, one uppercase and one lowercase letter.");
+                return;
+            }
+
+            // If all validations pass, display success message
+            document.write("User, Email, and Password are Valid");
+        }
+    </script>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form name="f1">
+        <label>Enter a Username:</label>
+        <input type="text" name="txt1"><br><br>
+
+        <label>Enter an Email Address:</label>
+        <input type="text" name="txt2"><br><br>
+
+        <label>Enter a Password:</label>
+        <input type="password" name="txt3"><br><br>
+
+        <input id="us" type="button" name="validate" value="Validate" onclick="validuser(document.f1.txt1.value)" />
+    </form>
+</body>
+</html>
